@@ -7,6 +7,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NosotrosComponent implements OnInit {
 
+  menu = [
+    {
+      name: 'Inicio',
+      route: '/inicio',
+    },
+    {
+      name: 'Nosotros',
+      route: '/nosotros',
+    },
+    {
+      name: 'Servicios',
+      route: '/servicios',
+    },
+  ];
+
+
   constructor() { }
 
   ngOnInit(): void {
