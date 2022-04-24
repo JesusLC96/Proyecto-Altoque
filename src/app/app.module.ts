@@ -8,6 +8,8 @@ import { NosotrosComponent } from './nosotros/nosotros.component';
 import { ServiciosComponent } from './servicios/servicios.component';
 import { LoginComponent } from './login/login.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { CuentaComponent } from './cuenta/cuenta.component';
+import { RegistroComponent } from './registro/registro.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +17,9 @@ import { ReactiveFormsModule } from '@angular/forms';
     InicioComponent,
     NosotrosComponent,
     ServiciosComponent,
-    LoginComponent
+    LoginComponent,
+    CuentaComponent,
+    RegistroComponent
   ],
   imports: [
     BrowserModule,
