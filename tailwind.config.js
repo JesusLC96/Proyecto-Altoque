@@ -1,9 +1,18 @@
 module.exports = {
-  content: [
-    "./src/**/*.{html,ts}",
-  ],
+  content: ["./src/**/*.{html,ts}"],
   theme: {
     extend: {},
   },
-  plugins: [],
-}
+  daisyui: {
+    themes: [
+      {
+        light: {
+          ...require("daisyui/src/colors/themes")["[data-theme=light]"],
+          primary: "#F7485D",
+          "primary-focus": "mediumblue",
+        },
+      },
+    ],
+  },
+  plugins: [require("daisyui")],
+};
