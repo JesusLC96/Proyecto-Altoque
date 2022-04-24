@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { EnviosService } from '../envios.service';
 
 @Component({
   selector: 'app-cuenta',
@@ -21,54 +22,13 @@ export class CuentaComponent implements OnInit {
     },
   ];
 
-  lista = [
-    {
-      name: 'Christian Quispe',
-      address_origin: 'Jr Nevado Huandoy 249',
-      district_origin: 'San Juan de Lurigancho',
-      address_destination: 'Av Industrial 1200',
-      district_destination: 'Surquillo',
-      weight: 2,
-      status: 'En camino',
-    },
-    {
-      name: 'Ruben Ochoa',
-      address_origin: 'Jr Nevado Huandoy 249',
-      district_origin: 'San Juan de Lurigancho',
-      address_destination: 'Av Industrial 1200',
-      district_destination: 'Surquillo',
-      weight: 2,
-      status: 'En camino',
-    },
-    {
-      name: 'Adrian Zela',
-      address_origin: 'Jr Nevado Huandoy 249',
-      district_origin: 'San Juan de Lurigancho',
-      address_destination: 'Av Industrial 1200',
-      district_destination: 'Surquillo',
-      weight: 2,
-      status: 'Recogido',
-    },
-    {
-      name: 'Carlos Alcantará',
-      address_origin: 'Jr Nevado Huandoy 249',
-      district_origin: 'San Juan de Lurigancho',
-      address_destination: 'Av Industrial 1200',
-      district_destination: 'Surquillo',
-      weight: 2,
-      status: 'Entregado',
-    },
-    {
-      name: 'Jesus Narvaes',
-      address_origin: 'Jr Nevado Huandoy 249',
-      district_origin: 'San Juan de Lurigancho',
-      address_destination: 'Av Industrial 1200',
-      district_destination: 'Surquillo',
-      weight: 2,
-      status: 'Entregado',
-    },
-  ];
-  constructor() {}
+  lista: any[] = [];
 
-  ngOnInit(): void {}
+  constructor(private enviosService: EnviosService) {}
+
+  ngOnInit(): void {
+    this.enviosService.getEnvios().subscribe((res: any) => {
+      // this.lista = res;
+    });
+  }
 }
