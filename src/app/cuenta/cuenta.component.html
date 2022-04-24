@@ -1,0 +1,60 @@
+<nav class="flex justify-center">
+  <div
+    class="flex items-center justify-between w-full max-w-[1200px] py-4 px-5"
+  >
+    <div>
+      <img src="/assets/envios-logo.png" alt="" />
+    </div>
+    <div class="flex items-center">
+      <li
+        *ngFor="let item of menu"
+        class="font-semibold list-none hover:underline hover:decoration-rose-500 hover:decoration-2 hover:underline-offset-4 mr-10 last:mr-0"
+      >
+        <a [routerLink]="[item.route]">
+          {{ item.name }}
+        </a>
+      </li>
+      <a class="btn btn-sm btn-outline btn-primary capitalize">Salir</a>
+    </div>
+  </div>
+</nav>
+
+<div class="flex justify-center">
+  <div class="flex items-center w-full max-w-[1200px] py-5 px-5">
+    <div class="w-full">
+      <div class="text-3xl">
+        Bienvenido otra vez
+        <span class="text-rose-500 font-semibold"> Christian </span>
+      </div>
+      <div class="mt-5">
+        <h2 class="text-xl">Últimos envíos</h2>
+        <div class="overflow-x-auto mt-4">
+          <table class="table table-compact w-full">
+            <thead>
+              <tr>
+                <th>Cliente</th>
+                <th>Origen</th>
+                <th>Destino</th>
+                <th>Peso</th>
+                <th>Estado</th>
+                <th>Acciones</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of lista">
+                <th>{{ item.name }}</th>
+                <td>{{ item.district_origin }}</td>
+                <td>{{ item.district_destination }}</td>
+                <td>{{ item.weight }}kg</td>
+                <td>{{ item.status }}</td>
+                <td>
+                  <button class="btn btn-xs">Ver</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
