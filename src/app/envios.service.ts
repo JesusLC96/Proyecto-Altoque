@@ -8,6 +8,6 @@ export class EnviosService {
   constructor(private http: HttpClient) {}
 
   getEnvios() {
-    return this.http.get('');
+    return this.http.get('https://localhost:44309/listarenvios');
   }
 }

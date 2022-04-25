@@ -24,11 +24,13 @@ export class CuentaComponent implements OnInit {
 
   lista: any[] = [];
 
-  constructor(private enviosService: EnviosService) {}
+  constructor(private enviosService: EnviosService) { }
 
   ngOnInit(): void {
     this.enviosService.getEnvios().subscribe((res: any) => {
       // this.lista = res;
+      console.log(res)
+      this.lista = res.data
     });
   }
 }

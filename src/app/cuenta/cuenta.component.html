@@ -42,11 +42,11 @@
             </thead>
             <tbody>
               <tr *ngFor="let item of lista">
-                <th>{{ item.name }}</th>
-                <td>{{ item.district_origin }}</td>
-                <td>{{ item.district_destination }}</td>
+                <th>{{ item.nombre }} {{ item.apellido }}</th>
+                <td>{{ item.src_add }}</td>
+                <td>{{ item.dest_add }}</td>
                 <td>{{ item.weight }}kg</td>
-                <td>{{ item.status }}</td>
+                <td>{{ item.nombre_estado }}</td>
                 <td>
                   <button class="btn btn-xs">Ver</button>
                 </td>
