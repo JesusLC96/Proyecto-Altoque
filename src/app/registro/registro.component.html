@@ -31,7 +31,17 @@
         <form [formGroup]="registerForm">
           <div class="form-control w-full">
             <label class="label">
-              <span class="label-text">Nombre y apellido</span>
+              <span class="label-text">Usuario </span>
+            </label>
+            <input
+              formControlName="username"
+              required="required"
+              class="input input-bordered w-full"
+            />
+          </div>        
+          <div class="form-control w-full">
+            <label class="label">
+              <span class="label-text">Nombre</span>
             </label>
             <input
               formControlName="name"
@@ -41,10 +51,21 @@
           </div>
           <div class="form-control w-full">
             <label class="label">
-              <span class="label-text">Edad</span>
+              <span class="label-text">Apellido</span>
             </label>
             <input
-              formControlName="age"
+              formControlName="lastname"
+              required="required"
+              class="input input-bordered w-full"
+            />
+          </div>
+          <div class="form-control w-full">
+            <label class="label">
+              <span class="label-text">Fecha de Nacimiento</span>
+            </label>
+            <input
+              type="date"
+              formControlName="birth"
               required="required"
               class="input input-bordered w-full"
             />
@@ -56,6 +77,17 @@
             <input
               type="email"
               formControlName="email"
+              required="required"
+              class="input input-bordered w-full"
+            />
+          </div>
+          <div class="form-control w-full">
+            <label class="label">
+              <span class="label-text">Telefono</span>
+            </label>
+            <input
+              type="tel"
+              formControlName="phone"
               required="required"
               class="input input-bordered w-full"
             />

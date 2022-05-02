@@ -32,8 +32,7 @@
             <span class="label-text">Usuario</span>
           </label>
           <input
-            type="email"
-            formControlName="email"
+            formControlName="username"
             required="required"
             class="input input-bordered w-full max-w-xs"
           />
@@ -49,9 +48,9 @@
             class="input input-bordered w-full max-w-xs"
           />
         </div>
-        <button (click)="__onSubmit()" class="btn btn-block btn-primary mt-5">
-          Entrar
-        </button>
+        <button (click)="__onSubmit()" class="btn btn-block btn-primary mt-5" [class.loading]="loginLoading">
+          {{ loginLoading ? "Cargando" : "Entrar"}}
+        </button>      
       </form>
       ¿No tienes una cuenta?
       <a routerLink="/registro" class="btn btn-active btn-link">Regístrate</a>
