@@ -4,13 +4,15 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { InicioComponent } from './inicio/inicio.component';
-import { NosotrosComponent } from './nosotros/nosotros.component';
-import { ServiciosComponent } from './servicios/servicios.component';
-import { LoginComponent } from './login/login.component';
+import { InicioComponent } from './pages/inicio/inicio.component';
+import { NosotrosComponent } from './pages/nosotros/nosotros.component';
+import { ServiciosComponent } from './pages/servicios/servicios.component';
+import { LoginComponent } from './pages/login/login.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import { CuentaComponent } from './cuenta/cuenta.component';
-import { RegistroComponent } from './registro/registro.component';
+import { CuentaComponent } from './pages/cuenta/cuenta.component';
+import { RegistroComponent } from './pages/registro/registro.component';
+import { HeaderComponent } from './components/header/header.component';
+import { NuevoEnvioComponent } from './pages/nuevo-envio/nuevo-envio.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,9 @@ import { RegistroComponent } from './registro/registro.component';
     ServiciosComponent,
     LoginComponent,
     CuentaComponent,
-    RegistroComponent
+    RegistroComponent,
+    HeaderComponent,
+    NuevoEnvioComponent
   ],
   imports: [
     BrowserModule,
