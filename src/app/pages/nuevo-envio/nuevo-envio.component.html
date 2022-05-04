@@ -3,7 +3,7 @@
 <div class="flex justify-center">
     <div class="flex items-center justify-center w-full max-w-[1200px] py-5 px-5">
         <div class="block p-6 rounded-lg shadow-lg bg-white w-full max-w-sm">
-            <h1 class="text-2xl font-bold text-center">Login</h1>
+            <h1 class="text-2xl font-bold text-center">Solicitar nuevo Envio</h1>
 
             <div *ngIf="hasNuevoEnvioErrors" class="alert alert-error shadow-lg my-4">
                 <div>
@@ -45,9 +45,9 @@
 
                 <div class="form-control w-full max-w-xs">
                     <label class="label">
-                        <span class="label-text">Precio referencial del paquete</span>
+                        <span class="label-text">Precio referencial del paquete (S/.)</span>
                     </label>
-                    <input formControlName="price" required class="input input-bordered w-full max-w-xs" />
+                    <input formControlName="price" required class="input input-bordered w-full max-w-xs" type="number" />
                 </div>
                 <div *ngIf="nuevoEnvioForm.controls['price'].invalid && (nuevoEnvioForm.controls['price'].dirty || nuevoEnvioForm.controls['price'].touched)"
                     class="text-red-600 text-sm">
@@ -60,7 +60,7 @@
                     <label class="label">
                         <span class="label-text">Peso del paquete (kg)</span>
                     </label>
-                    <input formControlName="weight" required class="input input-bordered w-full max-w-xs" />
+                    <input formControlName="weight" required class="input input-bordered w-full max-w-xs" type="number"/>
                 </div>
                 <div *ngIf="nuevoEnvioForm.controls['weight'].invalid && (nuevoEnvioForm.controls['weight'].dirty || nuevoEnvioForm.controls['weight'].touched)"
                     class="text-red-600 text-sm">
@@ -71,19 +71,19 @@
 
                 <div class="form-control w-full max-w-xs">
                     <label class="label">
-                        <span class="label-text">Peso del paquete (kg)</span>
+                        <span class="label-text">Contenido del paquete</span>
                     </label>
                     <input formControlName="paquete" required class="input input-bordered w-full max-w-xs" />
                 </div>
                 <div *ngIf="nuevoEnvioForm.controls['paquete'].invalid && (nuevoEnvioForm.controls['paquete'].dirty || nuevoEnvioForm.controls['paquete'].touched)"
                     class="text-red-600 text-sm">
                     <div *ngIf="nuevoEnvioForm.controls['paquete'].hasError('required')">
-                        El peso del paquete es requerido
+                        Es necesario que indique contenido del paquete
                     </div>
                 </div>
                 <button type="submit" class="btn btn-block btn-primary mt-5" [class.loading]="nuevoEnvioLoading"
                     [class.btn-disabled]="nuevoEnvioForm.pristine || nuevoEnvioForm.invalid">
-                    {{ nuevoEnvioLoading ? "Cargando" : "Entrar"}}
+                    {{ nuevoEnvioLoading ? "Cargando" : "Solicitar Envío"}}
                 </button>
             </form>
             ¿No tienes una cuenta?

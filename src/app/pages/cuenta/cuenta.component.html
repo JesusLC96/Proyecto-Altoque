@@ -10,30 +10,28 @@
       <div class="mt-5">
         <div class="flex justify-between">
           <h2 class="text-xl font-semibold">Últimos envíos</h2>
-          <button class="btn btn-primary btn-sm">Crear nuevo envío</button>
+          <a class="btn btn-primary btn-sm" routerLink="/nuevo-envio"
+            >Crear nuevo envío</a
+          >
         </div>
         <div class="overflow-x-auto mt-4">
           <table class="table table-compact w-full">
             <thead>
               <tr>
-                <th>Cliente</th>
                 <th>Origen</th>
                 <th>Destino</th>
                 <th>Peso</th>
                 <th>Estado</th>
-                <th>Acciones</th>
+                <th>Contenido</th>
               </tr>
             </thead>
             <tbody>
               <tr *ngFor="let item of lista">
-                <th>{{ item.nombre }} {{ item.apellido }}</th>
                 <td>{{ item.src_add }}</td>
                 <td>{{ item.dest_add }}</td>
                 <td>{{ item.weight }}kg</td>
                 <td>{{ item.nombre_estado }}</td>
-                <td>
-                  <button class="btn btn-xs">Ver</button>
-                </td>
+                <td>{{ item.paquete }}</td>
               </tr>
             </tbody>
           </table>

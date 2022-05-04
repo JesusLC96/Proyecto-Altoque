@@ -4,12 +4,12 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.css']
+  styleUrls: ['./header.component.css'],
 })
 export class HeaderComponent implements OnInit {
   token = sessionStorage.getItem('token');
   user = sessionStorage.getItem('user');
-  
+
   menu = [
     {
       name: 'Inicio',
@@ -19,21 +19,19 @@ export class HeaderComponent implements OnInit {
       name: 'Nosotros',
       route: '/nosotros',
     },
-    {
-      name: 'Servicios',
-      route: '/servicios',
-    },
+    //{
+    //   name: 'Servicios',
+    //   route: '/servicios',
+    // },
   ];
 
-  constructor(private router: Router) { }
+  constructor(private router: Router) {}
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   logout() {
-    sessionStorage.removeItem('user')
-    sessionStorage.removeItem('token')
-    this.router.navigate(['/'])
+    sessionStorage.removeItem('user');
+    sessionStorage.removeItem('token');
+    this.router.navigate(['/']);
   }
-
 }

@@ -27,6 +27,11 @@ export class NuevoEnvioComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    if (this.token && this.user) {
+      // todo
+    } else {
+      this.router.navigate(['/login'])
+    }
   }
 
   onSubmit() {
@@ -37,8 +42,8 @@ export class NuevoEnvioComponent implements OnInit {
     this.enviosService.createEnvios(this.nuevoEnvioForm.value, header).subscribe((response: any) => {
       if (response.issuccess) {
         this.hasNuevoEnvioErrors = false
-        sessionStorage.setItem('user', response.data.name + ' ' + response.data.lastname)
-        sessionStorage.setItem('token', response.data.token)
+        //sessionStorage.setItem('user', response.data.name + ' ' + response.data.lastname)
+        //sessionStorage.setItem('token', response.data.token)
         this.router.navigate(['/cuenta'])
       } else {
         this.hasNuevoEnvioErrors = true

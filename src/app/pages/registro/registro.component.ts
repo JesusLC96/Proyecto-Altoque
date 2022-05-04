@@ -31,7 +31,9 @@ export class RegistroComponent implements OnInit {
     this.registerService
       .register(this.registerForm.value)
       .subscribe((response: any) => {
-        console.log(response);
+        if (response.issuccess) {
+          this.router.navigate(['/login']);
+        }
       });
   }
 
