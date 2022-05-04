@@ -1,0 +1,64 @@
+<app-header></app-header>
+
+<div class="flex justify-center">
+  <div class="flex items-center justify-center w-full max-w-[1200px] py-5 px-5">
+    <div class="w-full flex flex-col items-center">
+      <h1 class="text-xl">Registro de nuevo usuario</h1>
+      <div class="block p-6 rounded-lg shadow-lg bg-white w-full max-w-sm mt-5">
+        <form [formGroup]="registerForm">
+          <div class="form-control w-full">
+            <label class="label">
+              <span class="label-text">Usuario </span>
+            </label>
+            <input formControlName="username" required="required" class="input input-bordered w-full" />
+          </div>
+          <div class="form-control w-full">
+            <label class="label">
+              <span class="label-text">Nombre</span>
+            </label>
+            <input formControlName="name" required="required" class="input input-bordered w-full" />
+          </div>
+          <div class="form-control w-full">
+            <label class="label">
+              <span class="label-text">Apellido</span>
+            </label>
+            <input formControlName="lastname" required="required" class="input input-bordered w-full" />
+          </div>
+          <div class="form-control w-full">
+            <label class="label">
+              <span class="label-text">Fecha de Nacimiento</span>
+            </label>
+            <input type="date" formControlName="birth" required="required" class="input input-bordered w-full" />
+          </div>
+          <div class="form-control w-full">
+            <label class="label">
+              <span class="label-text">Correo electrónico</span>
+            </label>
+            <input type="email" formControlName="email" required="required" class="input input-bordered w-full" />
+          </div>
+          <div class="form-control w-full">
+            <label class="label">
+              <span class="label-text">Telefono</span>
+            </label>
+            <input type="tel" formControlName="phone" required="required" class="input input-bordered w-full" />
+          </div>
+          <div class="form-control w-full">
+            <label class="label">
+              <span class="label-text">Contraseña</span>
+            </label>
+            <input type="password" formControlName="password" required="required" class="input input-bordered w-full" />
+          </div>
+          <div class="form-control">
+            <label class="label cursor-pointer">
+              <span class="label-text">Acepto el trato de mis datos personales</span>
+              <input type="checkbox" checked="checked" class="checkbox checkbox-primary" />
+            </label>
+          </div>
+          <button (click)="__onSubmit()" class="btn btn-block btn-primary mt-5">
+            Registrar
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

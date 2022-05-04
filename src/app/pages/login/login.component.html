@@ -1,0 +1,55 @@
+<app-header></app-header>
+
+<div class="flex justify-center">
+  <div class="flex items-center justify-center w-full max-w-[1200px] py-5 px-5">
+    <div class="block p-6 rounded-lg shadow-lg bg-white w-full max-w-sm">
+      <h1 class="text-2xl font-bold text-center">Login</h1>
+
+      <div *ngIf="hasLoginErrors" class="alert alert-error shadow-lg my-4">
+        <div>
+          <svg xmlns="http://www.w3.org/2000/svg" class="stroke-current flex-shrink-0 h-6 w-6" fill="none"
+            viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" />
+          </svg>
+          <span>Error al tratar de ingresar</span>
+        </div>
+      </div>
+
+      <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" novalidate>
+        <div class="form-control w-full max-w-xs">
+          <label class="label">
+            <span class="label-text">Usuario</span>
+          </label>
+          <input formControlName="username" required class="input input-bordered w-full max-w-xs" />
+        </div>
+        <div
+          *ngIf="loginForm.controls['username'].invalid && (loginForm.controls['username'].dirty || loginForm.controls['username'].touched)"
+          class="text-red-600 text-sm">
+          <div *ngIf="loginForm.controls['username'].hasError('required')">
+            El nombre de usuario es requerido
+          </div>
+        </div>
+        <div class="form-control w-full max-w-xs">
+          <label class="label">
+            <span class="label-text">Contraseña</span>
+          </label>
+          <input type="password" formControlName="password" required class="input input-bordered w-full max-w-xs" />
+        </div>
+        <div
+          *ngIf="loginForm.controls['password'].invalid && (loginForm.controls['password'].dirty || loginForm.controls['password'].touched)"
+          class="text-red-600 text-sm">
+          <div *ngIf="loginForm.controls['password'].hasError('required')">
+            La contraseña es requerida
+          </div>
+        </div>
+        <button type="submit" class="btn btn-block btn-primary mt-5" [class.loading]="loginLoading"
+          [class.btn-disabled]="loginForm.pristine || loginForm.invalid">
+          {{ loginLoading ? "Cargando" : "Entrar"}}
+        </button>
+      </form>
+      ¿No tienes una cuenta?
+      <a routerLink="/registro" class="btn btn-active btn-link">Regístrate</a>
+    </div>
+  </div>
+</div>

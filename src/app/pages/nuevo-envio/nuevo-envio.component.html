@@ -1,0 +1,93 @@
+<app-header></app-header>
+
+<div class="flex justify-center">
+    <div class="flex items-center justify-center w-full max-w-[1200px] py-5 px-5">
+        <div class="block p-6 rounded-lg shadow-lg bg-white w-full max-w-sm">
+            <h1 class="text-2xl font-bold text-center">Login</h1>
+
+            <div *ngIf="hasNuevoEnvioErrors" class="alert alert-error shadow-lg my-4">
+                <div>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="stroke-current flex-shrink-0 h-6 w-6" fill="none"
+                        viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    <span>Error al tratar de ingresar</span>
+                </div>
+            </div>
+
+            <form [formGroup]="nuevoEnvioForm" (ngSubmit)="onSubmit()" novalidate>
+                <div class="form-control w-full max-w-xs">
+                    <label class="label">
+                        <span class="label-text">Distrito de origen</span>
+                    </label>
+                    <input formControlName="src_add" required class="input input-bordered w-full max-w-xs" />
+                </div>
+                <div *ngIf="nuevoEnvioForm.controls['src_add'].invalid && (nuevoEnvioForm.controls['src_add'].dirty || nuevoEnvioForm.controls['src_add'].touched)"
+                    class="text-red-600 text-sm">
+                    <div *ngIf="nuevoEnvioForm.controls['src_add'].hasError('required')">
+                        El distrito de origen es requerido
+                    </div>
+                </div>
+
+                <div class="form-control w-full max-w-xs">
+                    <label class="label">
+                        <span class="label-text">Distriro de destino</span>
+                    </label>
+                    <input formControlName="dest_add" required class="input input-bordered w-full max-w-xs" />
+                </div>
+                <div *ngIf="nuevoEnvioForm.controls['dest_add'].invalid && (nuevoEnvioForm.controls['dest_add'].dirty || nuevoEnvioForm.controls['dest_add'].touched)"
+                    class="text-red-600 text-sm">
+                    <div *ngIf="nuevoEnvioForm.controls['dest_add'].hasError('required')">
+                        El distrito de destino es requerido
+                    </div>
+                </div>
+
+                <div class="form-control w-full max-w-xs">
+                    <label class="label">
+                        <span class="label-text">Precio referencial del paquete</span>
+                    </label>
+                    <input formControlName="price" required class="input input-bordered w-full max-w-xs" />
+                </div>
+                <div *ngIf="nuevoEnvioForm.controls['price'].invalid && (nuevoEnvioForm.controls['price'].dirty || nuevoEnvioForm.controls['price'].touched)"
+                    class="text-red-600 text-sm">
+                    <div *ngIf="nuevoEnvioForm.controls['price'].hasError('required')">
+                        El precio referencial es requerido
+                    </div>
+                </div>
+
+                <div class="form-control w-full max-w-xs">
+                    <label class="label">
+                        <span class="label-text">Peso del paquete (kg)</span>
+                    </label>
+                    <input formControlName="weight" required class="input input-bordered w-full max-w-xs" />
+                </div>
+                <div *ngIf="nuevoEnvioForm.controls['weight'].invalid && (nuevoEnvioForm.controls['weight'].dirty || nuevoEnvioForm.controls['weight'].touched)"
+                    class="text-red-600 text-sm">
+                    <div *ngIf="nuevoEnvioForm.controls['weight'].hasError('required')">
+                        El peso del paquete es requerido
+                    </div>
+                </div>
+
+                <div class="form-control w-full max-w-xs">
+                    <label class="label">
+                        <span class="label-text">Peso del paquete (kg)</span>
+                    </label>
+                    <input formControlName="paquete" required class="input input-bordered w-full max-w-xs" />
+                </div>
+                <div *ngIf="nuevoEnvioForm.controls['paquete'].invalid && (nuevoEnvioForm.controls['paquete'].dirty || nuevoEnvioForm.controls['paquete'].touched)"
+                    class="text-red-600 text-sm">
+                    <div *ngIf="nuevoEnvioForm.controls['paquete'].hasError('required')">
+                        El peso del paquete es requerido
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-block btn-primary mt-5" [class.loading]="nuevoEnvioLoading"
+                    [class.btn-disabled]="nuevoEnvioForm.pristine || nuevoEnvioForm.invalid">
+                    {{ nuevoEnvioLoading ? "Cargando" : "Entrar"}}
+                </button>
+            </form>
+            ¿No tienes una cuenta?
+            <a routerLink="/registro" class="btn btn-active btn-link">Regístrate</a>
+        </div>
+    </div>
+</div>
