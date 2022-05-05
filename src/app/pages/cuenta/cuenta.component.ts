@@ -23,6 +23,7 @@ export class CuentaComponent implements OnInit {
 
       this.enviosService.getEnvios(header).subscribe((res: any) => {
         this.lista = res.data
+        console.log(res)
       });
     } else {
       this.router.navigate(['/login'])
